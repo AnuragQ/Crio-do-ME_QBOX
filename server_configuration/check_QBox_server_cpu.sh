@@ -2,6 +2,7 @@
 
 # Usage: ./check_QBox_server_cpu.sh /proc/meminfo
 cpuSpeedInfo=`cat $1 | grep -m 1 "cpu MHz" | awk '{print $4} '`
+if test $# -ne 1 
    then
    echo "Incorrect invocation of script. Usage: ./check_QBox_server_cpu.sh /proc/cpuinfo"
    exit 1  # Failure
