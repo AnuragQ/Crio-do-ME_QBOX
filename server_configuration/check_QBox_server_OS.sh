@@ -28,6 +28,8 @@ else
 fi
 ubuntuVersion=`cat $1 | grep -m1 "PRETTY_NAME" | awk '{print $2} ' `
 ubuntuVersion=${ubuntuVersion%.*}
+ubuntuVersion=${ubuntuVersion%.*}
+
 # Check if Ubuntu Version is >= 18.0
 # TODO: CRIO_TASK_MODULE_SERVER_CONFIGURATION
     # Tasks:
