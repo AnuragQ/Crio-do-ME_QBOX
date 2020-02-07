@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Usage: ./check_QBox_server_cpu.sh /proc/meminfo
-cpuSpeedInfo=`cat $1 | grep -m 1 "cpu MHz" | awk '{print $4} '`
 if test $# -ne 1 
    then
    echo "Incorrect invocation of script. Usage: ./check_QBox_server_cpu.sh /proc/cpuinfo"
@@ -10,7 +9,9 @@ fi
 
 # Required minimum configuration
 requiredCPUSpeedInMHz=1000     # 1 GHz
-cpuSpeedInMHz=${cpuSpeedInfo%.*}if test $# -ne 1 
+
+cpuSpeed=`cat $1 | grep -m 1 "cpu MHz" | awk '{print $4} '`
+cpuSpeedInMHz=${cpuSpeed%.*}
 # Check if the CPU has speed >= 1 GHz
 # TODO: CRIO_TASK_MODULE_SERVER_CONFIGURATION
     # Tasks:
